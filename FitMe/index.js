@@ -8,9 +8,11 @@ import {
   ActivityIndicator
 } from 'react-native';
 import Login from './src/pages/Login';
-import Account from './src/pages/Account';
+//import Account from './src/pages/Account';
+import PersonalForm from './src/pages/PersonalForm';
+import SearchPage from './src/pages/SearchPage';
 import styles from './src/styles/baseStyles.js';
-//import App from './App';
+import App from './App';
 import * as firebase from 'firebase';
 import NavigationExperimental from 'react-native-deprecated-custom-components';
 
@@ -38,7 +40,7 @@ class FitMe extends Component {
     const unsubscribe = firebaseApp.auth().onAuthStateChanged((user) => {
       // If the user is logged in take them to the accounts screen
       if (user != null) {
-        this.setState({page: Account});
+        this.setState({page: PersonalForm});
         return;
       }
       // otherwise have them login

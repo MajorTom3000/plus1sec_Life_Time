@@ -11,6 +11,7 @@ import {
 import React, {Component} from 'react';
 import Signup from './Signup';
 import Account from './Account';
+import PersonalForm from './PersonalForm';
 import styles from '../styles/baseStyles.js';
 
 export default class Login extends Component {
@@ -74,7 +75,7 @@ export default class Login extends Component {
 	        loading: false
 	      });
         this.props.navigator.push({
-          component: Account
+          component: PersonalForm
         });
       }
     ).catch((error) =>

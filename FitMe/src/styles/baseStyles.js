@@ -47,5 +47,23 @@ module.exports = StyleSheet.create({
   image: {
     width: 100,
     height: 100
-  }
+  },
+  goBack:{
+    
+    width: 50,
+    height: 50,
+    backgroundColor: '#292477'
+  },
+  btn:{
+    flex:1,
+    backgroundColor:'#FF7200',
+    height:45,
+    textAlign:'center',
+    color:'#fff',
+    marginLeft:5,
+    marginRight:5,
+    lineHeight:45,
+    fontSize:15,
+  },
+  
 });

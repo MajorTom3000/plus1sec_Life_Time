@@ -6,10 +6,12 @@ import {
   View,
   Image,
   TouchableHighlight,
+  AsyncStorage,
   ToolbarAndroid
 } from 'react-native';
 import React, {Component} from 'react';
 import Login from './Login';
+import PersonalForm from './PersonalForm';
 import styles from '../styles/baseStyles.js';
 
 // Styles specific to the account page
@@ -55,6 +57,11 @@ export default class Account extends Component {
           <TouchableHighlight onPress={this.logout.bind(this)} style={styles.primaryButton}>
             <Text style={styles.primaryButtonText}>Logout</Text>
           </TouchableHighlight>
+
+          <View style={styles.goBack}>
+              <Text style={styles.btn} onPress={this.Goback.bind(this)}>Goback</Text>
+          </View>
+
         </View>
       ;
     return (
@@ -76,7 +83,30 @@ export default class Account extends Component {
         component: Login
       });
     });
+
+    var _that = this;
+    AsyncStorage.clear(function(err){
+      if(!err){
+        _that.setState({
+          gender: "",
+          age: "",
+          height: "",
+          weight: "",
+          favoritefood: ""
+        });
+      }
+    });
+
   }
+
+  Goback() {
+
+    this.props.navigator.push({
+        component: PersonalForm
+      });
+
+  }
+
 }
 
 AppRegistry.registerComponent('Account', () => Account);
